@@ -1,28 +1,265 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Hank Quinlan, Horrible Cop</title>
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Hank Quinlan!</h1>
-				<p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't trust me. <a href="/about">Read more about my life...</a></p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
-        		<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
-			</ul>
-		</footer>
-	</body>
+<head>
+<title>QUICK SQL CODE</title>
+</head>
+<body>
+create table departments ( 
+    id                             numeric(10) not null, 
+    name                           varchar2(255) not null, 
+    location                       varchar2(4000), 
+    country                        varchar2(4000), 
+    CONSTRAINT id PRIMARY KEY (id) 
+) ;
+<br>
+<br>
+
+
+create table employees ( 
+    department_id                  number 
+                                   constraint employees_department_id_fk 
+                                   references departments on delete cascade, 
+    name                           varchar2(50) not null, 
+    email                          varchar2(255), 
+    cost_center                    number, 
+    date_hired                     date, 
+    job                            varchar2(255) 
+) ;
+
+<br>
+<br>
+
+
+insert into departments ( 
+    id,
+    name, 
+    location, 
+    country 
+) values ( 
+     '1',
+    'Security', 
+    'Tanquecitos', 
+    'United States' 
+);
+<br>
+<br>
+
+insert into departments ( 
+    id,
+    name, 
+    location, 
+    country 
+) values ( 
+     '2',
+    'Travel', 
+    'Sugarloaf', 
+    'United States' 
+)
+;
+
+<br>
+<br>
+
+
+insert into departments ( 
+    id,
+    name, 
+    location, 
+    country 
+) values ( 
+    '3',
+    'Office of the CEO', 
+    'Dale City', 
+    'United States' 
+);
+
+<br>
+<br>
+
+
+insert into departments ( 
+    id,
+    name, 
+    location, 
+    country 
+) values ( 
+    '4',
+    'Security', 
+    'Grosvenor', 
+    'United States' 
+);
+
+<br>
+<br>
+commit;
+
+<br>
+
+insert into employees ( 
+    department_id, 
+    name, 
+    email, 
+    cost_center, 
+    date_hired, 
+    job 
+) values ( 
+    1, 
+    'Gricelda Luebbers', 
+    'gricelda.luebbers@aaab.com', 
+    20, 
+    sysdate - 94, 
+    'Systems Designer' 
+);
+
+<br>
+<br>
+
+insert into employees ( 
+    department_id, 
+    name, 
+    email, 
+    cost_center, 
+    date_hired, 
+    job 
+) values ( 
+    1, 
+    'Dean Bollich', 
+    'dean.bollich@aaac.com', 
+    11, 
+    sysdate - 74, 
+    'Legal Assistant' 
+);
+
+<br>
+<br>
+
+insert into employees ( 
+    department_id, 
+    name, 
+    email, 
+    cost_center, 
+    date_hired, 
+    job 
+) values ( 
+    1, 
+    'Milo Manoni', 
+    'milo.manoni@aaad.com', 
+    21, 
+    sysdate - 68, 
+    'Systems Designer' 
+);
+
+<br>
+<br>
+
+insert into employees ( 
+    department_id, 
+    name, 
+    email, 
+    cost_center, 
+    date_hired, 
+    job 
+) values ( 
+    1, 
+    'Laurice Karl', 
+    'laurice.karl@aaae.com', 
+    78, 
+    sysdate - 73, 
+    'Programmer' 
+)
+;
+
+<br>
+<br>
+
+select  
+    departments.name                                   department_name, 
+    departments.location                               location, 
+    departments.country                                country, 
+    employees.name                                     employee_name, 
+    employees.email                                    email, 
+    employees.cost_center                              cost_center, 
+    employees.date_hired                               date_hired, 
+    employees.job                                      job 
+from  
+    departments, 
+    employees;
+<br>
+<br>
+
+    
+commit;
+    
+<br>
+<br>
+
+OUTPUT : 
+
+Table created.
+
+<br>
+<br>
+
+Table created.
+
+<br>
+<br>
+
+1 row(s) inserted.
+
+<br>
+<br>
+
+1 row(s) inserted.
+
+<br/>
+
+1 row(s) inserted.
+
+<br>
+<br>
+
+1 row(s) inserted.
+
+<br>
+<br>
+
+Statement processed.
+
+<br>
+<br>
+
+1 row(s) inserted.
+
+<br/>
+
+1 row(s) inserted.
+
+<br>
+<br>
+
+1 row(s) inserted.
+
+<br>
+<br>
+
+1 row(s) inserted.
+
+<br>
+<br>
+
+<h2>OUTPUT OF THE TABLE</h2>
+
+<img src ='C:\Users\Saumyojit\Desktop\oracle sql live\output of experiment 1 id pkey.png'>
+
+
+</body>
 </html>
+
+
+
+
+
+
+
+
